@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<body>
+    <script>
+        function one(){
+            var a = 5;
+            if(a == 5)
+                console.log("yes, a = 5");
+            if(a != 5)
+                console.log("no, a != 5");
+        }
+        function two(){
+            var m = 100;
+            var n;
+            if(m > 50)
+                n = "большое";
+            else
+                n = "маленькое";
+            console.log(n);
+        }
+        function three(){
+            var i = 2;
+            while( i < 9 ){
+                console.log( i++ );
+            } //семь раз. [2;8]
+        }
+        function four(){
+            var i = 45;
+            while(i < 68){
+                console.log(i++);
+            }
+        }
+        function five(){
+            var i = 45;
+            while(i < 671){
+                if(i % 10 == 0)
+                    console.log(i);
+                i++;
+            }
+        }
+        function six(){
+            for(var i = 45; i < 68; i++)
+                console.log(i);
+
+            for(var i = 45; i < 671; i++)
+                if(i % 10 == 0)
+                    console.log(i);
+        }
+        function seven(){
+            var n = 3;
+            switch(n){
+                case 0:
+                    console.log("Ноль");
+                    break;
+                case 1:
+                    console.log("Один");
+                    break;
+                case 2:
+                    console.log("Два");
+                    break;
+                case 3:
+                    console.log("Три");
+                    break;
+                case 4:
+                    console.log("Четыре");
+                    break;
+                case 5:
+                    console.log("Пять");
+                    break;
+                case 6:
+                    console.log("Шесть");
+                    break;
+                case 7:
+                    console.log("Семь");
+                    break;
+                case 8:
+                    console.log("Восемь");
+                    break;
+                case 9:
+                    console.log("Девять");
+                    break;
+                default:
+                    console.log("error");
+            }
+        }
+        function eight(){
+            for(var i = 0; i < 10; i++)
+            {
+                document.write('<img src="TheEarth.jpg" alt="The Earth">');
+            }
+        }
+        function nine(){
+        var size = 120;
+        var unit = "Гб";
+        switch(unit){
+            case "Кб":
+                size *= 1024;
+                console.log(size + " байт");
+                break;
+            case "Мб":
+                size = 120*1024*1024;
+                console.log(size + " байт");
+                break;
+            case "Гб":
+                size = 120*1024*1024*1024;
+                console.log(size + " байт");
+                break;
+            default:
+                console.log("error");
+            }
+        }
+        // if(unit == "Кб")
+        //     size *= 1024;
+        // else if (unit == "Мб")
+        //     size = 120*1024*1024;
+        // else if (unit == "Гб")
+        //     size = 120*1024*1024*1024;
+        // console.log(size);
+
+        //ten
+        function createCalendar(){
+            let style = "<style> table,th,td,caption { border: 1px solid black;\n border-collapse: collapse;}</style>"
+            let str = '<table><caption>Октябрь</caption><tr>';
+            for(let i = 1; i<=7; i++)
+            {
+                switch(i){
+                    case 1:
+                        str+="<th>Пн</th>\n";
+                        break;
+                    case 2:
+                        str+="<th>Вт</th>\n";
+                        break;
+                    case 3:
+                        str+="<th>Ср</th>\n";
+                        break;
+                    case 4:
+                        str+="<th>Чт</th>\n";
+                        break;
+                    case 5:
+                        str+="<th>Пт</th>\n";
+                        break;
+                    case 6:
+                        str+="<th>Сб</th>\n";
+                        break;
+                    case 7:
+                        str+="<th>Вс</th>\n";
+                        break;   
+                }
+            }
+            str+="</tr>"
+            for(let i = 1; i <= 31; i++)
+            {
+                str+=`<td>${i}</td>`;
+                if(i % 7 == 0 ) str +="</tr><tr>";
+                if(i == 31) str += "</tr>"
+            }
+            str+="</table>";
+            document.write(style + str);
+        }
+        //eleven
+        function hello1(){
+            return "Привет, JavaScript!";
+        }
+        function testEleven(){
+            console.log(hello1());
+        }
+        //twelve
+        function hello2(name){
+            if(!name)
+                return "Привет, гость"
+            return `Привет, ${name}`;
+        }
+        function testTwelve(){
+            console.log(hello2("Дима"));
+        }   
+        //thirteen
+        function mul(n, m){
+            return n*m;
+        }
+        function testThirteen(){
+            console.log(mul(4,5));
+        }
+        //fourteen 
+        function repeat(str, n){
+            var stroka = "";
+            for(var i = 0; i < n; i++){
+                stroka += str;
+            }
+            return stroka;
+        }
+        function testFourteen(){
+            console.log(repeat("HELLO ", 5));
+        }
+        //fifteen
+        function rgb(f=0,s=0,t=0){
+            return `rgb(${f},${s},${t})`;
+        }
+        function testFifteen(){
+            console.log(rgb(20,28,228));
+        }
+        //sixteen
+        function avg() {
+            if (arguments.length === 0) {
+                return 0; 
+            }
+            let sum = 0;
+            for (let i = 0; i < arguments.length; i++) {
+                sum += arguments[i];
+            }
+            return sum / arguments.length;
+        }
+        function textSixteen(){
+            console.log(avg(2, 4, 6)); // Вывод: 4
+            console.log(avg(5, 4, 2)); // Вывод: 3.66
+            console.log(avg()); // Вывод: 0
+        }
+        //seventeen
+        function m(a,b){
+            mul(a,b);
+        }
+        function log(str)
+        {
+            console.log(str);
+        }
+        function testSeventeen(){
+            testThirteen();
+        }
+        //eighteen
+        function operation(m,n,o){
+            switch(o)
+            {
+                case '+':
+                    console.log(m + n);
+                    break; 
+                case '-':
+                    console.log(m - n);
+                    break; 
+                case '*': 
+                    console.log(m * n);
+                    break;
+                case '/':
+                    console.log(m / n);
+                    break;
+                break;
+            }
+        }
+        function testEighteen(){
+            operation(7,111,"*");
+        }
+        //nineteen
+        function addN(n){
+            return function(a){
+                return a + n;
+            }
+        }
+        function testNineteen(){
+            const add5 = addN(5);
+            console.log(add5(20));
+        }
+        //twenty
+        function words(n, word = 'товар') {
+            if (n === 0) {
+            return `0 ${word}ов`;
+            } else if (n === 1) {
+            return `1 ${word}`;
+            } else if (n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20)) {
+            return `${n} ${word}а`;
+            } else {
+            return `${n} ${word}ов`;
+            }
+        }
+        function testTwenty(){
+            console.log(words(12));
+        }
+        function clearC(){
+            console.clear();
+        } 
+    </script>
+    <p><button onclick="clearC()"><b>Очистить консоль</b></button></p>
+    <button onclick="one()">Задание 1</button>
+    <button onclick="two()">Задание 2</button>
+    <button onclick="three()">Задание 3</button>
+    <button onclick="four()">Задание 4</button>
+    <button onclick="five()">Задание 5</button><br><br>
+    <button onclick="six()">Задание 6</button>
+    <button onclick="seven()">Задание 7</button>
+    <button onclick="eight()">Задание 8</button>
+    <button onclick="nine()">Задание 9</button>
+    <button onclick="createCalendar()">Задание 10</button><br><br>
+    <button onclick="testEleven()">Задание 11</button>
+    <button onclick="testTwelve()">Задание 12</button>
+    <button onclick="testThirteen()">Задание 13</button>
+    <button onclick="testFourteen()">Задание 14</button>
+    <button onclick="testFifteen()">Задание 15</button><br><br>
+    <button onclick="textSixteen()">Задание 16</button>
+    <button onclick="testSeventeen()">Задание 17</button>
+    <button onclick="testEighteen()">Задание 18</button>
+    <button onclick="testNineteen()">Задание 19</button>
+    <button onclick="testTwenty()">Задание 20</button>
+    
+    
+</body>
+</html>
